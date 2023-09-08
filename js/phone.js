@@ -56,19 +56,35 @@ phones = phones.slice(0,12);
         // 4. appendchild
         phoneContainer.appendChild(phoneCard)
     })
+    // hide loading spinner 
+    toggleLoadingSpinner(false);
 }
+
 
 // handle search button 
 const handleSearch = () => {
+    toggleLoadingSpinner(true)
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     
     loadPhone(searchText)
-}
 
+}
+//  handle search recap
 const handleSearch2= () =>{
+    toggleLoadingSpinner(true)
     const searchField = document.getElementById('search-field2');
     const searchText = searchField.value;
     loadPhone (searchText)
+}
+
+const toggleLoadingSpinner = (isLoading)=>{
+   const LoadingSpinner= document.getElementById('loading-spinner');
+    if (isLoading){
+        LoadingSpinner.classList.remove('hidden')
+    }
+    else{
+        LoadingSpinner.classList.add('hidden')
+    }
 }
 // loadPhone()
